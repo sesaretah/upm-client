@@ -1,16 +1,20 @@
 import React from "react";
-import { Link, List, ListItem, ListInput, Navbar, Icon, Button, Page, LoginScreenTitle, ListButton, CardFooter, Card, CardHeader, CardContent } from 'framework7-react';
+import { Link, List, ListItem, ListInput, Toolbar, Icon, Button, Page, LoginScreenTitle, ListButton, CardFooter, Card, CardHeader, CardContent } from 'framework7-react';
 import { dict } from '../../Dict';
 import crypto from 'crypto-js';
 
 const SignUpForm = (props) => {
   return (
     <Page>
-      <Navbar title={dict.sign_up} >
-        <Link panelOpen="right">
-          <Icon f7="bars"></Icon>
-        </Link>
-      </Navbar>Ï
+    <Toolbar top>
+      
+    <Link href='/login/' className='color-brown'>
+        <i className="va fa fa-arrow-right" aria-hidden="true"></i>
+        <span className='fw-8 color-brown'>{dict.back}</span>
+      </Link>
+      <Link></Link>
+
+    </Toolbar>
       <Card>
         <CardHeader>{dict.sign_up}</CardHeader>
         <CardContent>

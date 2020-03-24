@@ -150,5 +150,14 @@ export const dict = {
   'private':'خصوصی ',
   'course_type':'نوع درس',
   'select_appropriate_title': 'عنوانی مناسب انتخاب کنید',
-  'write_appropriate_description':'شرحی از اهداف و روش ها بنویسید'
+  'write_appropriate_description':'شرحی از اهداف و روش ها بنویسید',
+  'description':'شرح ',
+  'bayan': 'بیان',
+  'zaman': 'زمان',
+  'kian': 'کیان',
+  'about_shoa': 'شعاع یک شبکه اجتماعی علمی است',
+  'about_zaman' : 'زمان، سامانه تقویم و زمانبندی است',
+  'about_kian' : 'کیان، سامانه مدیریت یادکیری و آموزش بر خطا است',
+  'about_divan' : 'دیوان، سامانه مدیریت دانش است',
+  'about_bayan': 'بیان، سامانه پخش چند رسانه ای است'
 };

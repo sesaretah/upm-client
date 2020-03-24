@@ -16,7 +16,7 @@ import {
 import { dict} from '../../Dict';
 import ModelStore from "../../stores/ModelStore";
 import * as MyActions from "../../actions/MyActions";
-import CourseForm from "../../containers/courses/form"
+import MetaForm from "../../containers/metas/form"
 import Framework7 from 'framework7/framework7.esm.bundle';
 
 
@@ -30,9 +30,11 @@ export default class DocumentUpdate extends Component {
 
 
     this.state = {
-      token: window.localStorage.getItem('token'),
-      course : {},
-      defaultCourse: null,
+      meta : {},
+      title: null,
+      metaSchema: null,
+      id: null,
+      label: null,
     }
   }
 
@@ -49,8 +51,8 @@ export default class DocumentUpdate extends Component {
 
 
   submit(){
-    var data = {id:this.state.id, title: this.state.title, default_course: this.state.defaultCourse}
-    MyActions.updateInstance('courses', data,  this.state.token);
+    var data = {id:this.state.id, title: this.state.title, label: this.state.label, meta_schema: this.state.metaSchema}
+    MyActions.updateInstance('metas', data);
   }
   componentDidMount(){
     this.loadData();
@@ -59,43 +61,46 @@ export default class DocumentUpdate extends Component {
   loadData(){
     const f7: Framework7 = Framework7.instance;
     f7.toast.show({ text: dict.receiving, closeTimeout: 2000, position: 'top'});
-    if (this.$f7route.params['courseId']) {
-      MyActions.getInstance('courses', this.$f7route.params['courseId'],  this.state.token);
+    if (this.$f7route.params['metaId']) {
+      MyActions.getInstance('metas', this.$f7route.params['metaId']);
     }
   }
 
 
   getInstance(){
-    var course = ModelStore.getIntance()
+    var meta = ModelStore.getIntance()
     var klass = ModelStore.getKlass()
-    if (course && klass === 'Course'){
+    console.log(meta);
+    if (meta && klass === 'Meta'){
       this.setState({
-        title: course.title,
-        id: course.id,
-        course: course,
-        defaultCourse: course.default_course
+        title: meta.title,
+        id: meta.id,
+        meta: meta,
+        metaSchema: meta.metaSchema,
+        label: meta.label
       });
     }
   }
 
   handleChangeValue(obj) {
+    console.log(obj);
     this.setState(obj);
   }
 
 
   setInstance(){
     const self = this;
-    this.$f7router.navigate('/courses/');
+    this.$f7router.navigate('/metas/');
   }
 
 
   render() {
-        const {course, defaultCourse} = this.state;
+        const {meta} = this.state;
     return (
       <Page>
-        <Navbar title={dict.course_form} backLink={dict.back} />
-        <BlockTitle>{dict.course_form}</BlockTitle>
-        <CourseForm course={course} defaultCourse={defaultCourse} submit={this.submit} editing={true} handleChange={this.handleChangeValue}/>
+        <Navbar title={dict.meta_form} backLink={dict.back} />
+        <BlockTitle>{dict.meta_form}</BlockTitle>
+        <MetaForm meta={meta} submit={this.submit} editing={true} handleChange={this.handleChangeValue}/>
       </Page>
     );
   }

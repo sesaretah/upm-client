@@ -1,16 +1,21 @@
 import React from "react";
-import { Link, List, CardHeader, ListInput, CardContent, CardFooter, Button, Page, Card, Navbar, Icon } from 'framework7-react';
+import { Link, List, CardHeader, ListInput, CardContent, CardFooter, Button, Page, Card, Navbar, Block , Toolbar} from 'framework7-react';
 import { dict } from '../../Dict';
 import crypto from 'crypto-js';
 
 const LoginForm = (props) => {
   return (
     <Page>
-      <Navbar title={dict.sign_up} >
-        <Link panelOpen="right">
-          <Icon f7="bars"></Icon>
-        </Link>
-      </Navbar>Ï
+      <Toolbar title={dict.sign_up} top >
+      
+      <Link href='/' className='color-brown'>
+        <i className="va fa fa-arrow-right" aria-hidden="true"></i>
+        <span className='fw-8 color-brown'>{dict.back}</span>
+      </Link>
+      <Link></Link>
+
+    </Toolbar>
+    <Block>
       <Card>
         <CardHeader>{dict.login}</CardHeader>
         <CardContent>
@@ -40,6 +45,7 @@ const LoginForm = (props) => {
           <Button className="col" fill onClick={props.submit}>{dict.login}</Button>
         </CardFooter>
       </Card>
+      </Block>
     </Page>
   )
 }

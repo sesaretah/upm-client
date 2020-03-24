@@ -9,11 +9,6 @@ import RoleIndex from './components/roles/index';
 import RoleCreate from './components/roles/create';
 import RoleUpdate from './components/roles/update';
 
-import CourseShow from './components/courses/show';
-import CourseIndex from './components/courses/index';
-import CourseCreate from './components/courses/create';
-import CourseUpdate from './components/courses/update';
-
 
 import ProfileShow from './components/profiles/show';
 import ProfileIndex from './components/profiles/index';
@@ -62,22 +57,6 @@ export default [
     component: RoleShow,
   },
 
-  {
-    path: '/courses/',
-    component: CourseIndex,
-  },
-  {
-    path: '/courses/:courseId/edit',
-    component: CourseUpdate,
-  },
-  {
-    path: '/courses/new',
-    component: CourseCreate,
-  },
-  {
-    path: '/courses/:courseId',
-    component: CourseShow,
-  },
 
   {
     path: '/profiles/',

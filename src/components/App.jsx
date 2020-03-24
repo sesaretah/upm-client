@@ -28,7 +28,7 @@ export default function (props) {
     name: 'Framework7', // App name
     theme: 'aurora', // Automatic theme detection
     panel: {
-      rightBreakpoint: 960,
+     // rightBreakpoint: 960,
     },
     view: {
       //ignoreCache: true,
@@ -49,12 +49,12 @@ export default function (props) {
       </Panel>
 
       {/* Right Panel */}
-      <Panel right reveal themeDark>
+      <Panel right reveal>
         <View url="/panel-right/"/>
       </Panel>
 
       {/* Main View */}
-      <View id="main-view" url="/" pushState={true}  main className="safe-areas"/>
+      <View id="main-view" url="/" pushState={true}  main className="safe-areas" themeDark/>
 
     </App>
   );
